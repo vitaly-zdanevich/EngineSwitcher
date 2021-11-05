@@ -1,4 +1,4 @@
-export type search_engine_t = 'duckduckgo' | 'ecosia' | 'startpage' | 'bing' | 'google' | 'enwiki'
+export type search_engine_t = 'duckduckgo' | 'ecosia' | 'startpage' | 'bing' | 'google' | 'yandex' | 'enwiki'
 export interface SearchEngine {
     /** duckduckgo */
     id: search_engine_t,
@@ -77,6 +77,15 @@ export const ENGINES: SearchEngine[] = [
         queryUrl: 'https://www.google.com/search?q={}',
         queryNeedContentScript: false,
         iconUrl: browser.runtime.getURL('img/engines/google.svg'),
+    },
+    {
+        id: 'yandex',
+        name: 'Yandex',
+        hostname: 'www.yandex.com',
+        queryKey: 'q',
+        queryUrl: 'https://yandex.com/search/?text={}',  // https://yandex.ru/search/?text={}
+        queryNeedContentScript: false,
+        iconUrl: browser.runtime.getURL('img/engines/yandex.svg'),
     },
     {
         id: 'enwiki',
